@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+	<title>Нуртдинова</title>
+        <style>
+        #drag {font-size: 20px; background-color: white;
+            width: 200px;  text-align: center; padding: 5px;
+        background-color: antiquewhite;}
+    </style>
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$('#drag').mousemove(function(event) {
+			$('#drag').draggable();
+		});
+	});
+    </script> 
+</head>
+<body>
+	<a href="index.html" id="naz">Назад</a>
+		<h2>Задание 5.</h2>
+    <div id="drag">
+        Блок перетаскивания
+    </div>
+</body>
+</html>

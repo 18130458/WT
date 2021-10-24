@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spisok>
+   <comments>
+      <name>
+         Эвелина
+      </name>
+      <email>
+         evelinakook@gmail.com
+      </email>
+      <comment>
+         Отсыпаться!!!
+      </comment>
+   </comments>
+   <comments>
+      <name>
+         Саша
+      </name>
+      <email>
+        alextrut@yandex.ru
+      </email>
+      <comment>
+        Закрывать долги...
+      </comment>
+   </comments>
+   </spisok>

@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Нуртдинова</title>
+	<link rel="stylesheet" href="jquery-ui.css">
+	<style>
+
+		a {
+			font-size: larger;
+			color: blue;
+		}
+		.button {
+			border: 5px solid blue;
+			background-color: blue;
+			border-radius: 5px;
+			color: snow;
+			padding: 10px;
+			font-size: larger;
+		}
+    .btn {
+      font-size: 35px;
+      color: blue;
+      background-color: cornsilk;
+      border-color: darkseagreen;
+      width: 500px;
+    }
+    #time {
+      font-size: 32px;
+      font-weight: 600;
+      width: 500px;
+      text-align: center;
+    }
+    .cnt1 {
+      font-size: 24px;
+      font-weight: 400;
+      color: darkseagreen;
+width: 500px;
+text-align: center;
+    }
+	</style>
+  	<script src="jquery.myPlugin.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>Игра</h1>
+<div id="time"></div>
+<section>
+  <div class="cnt1">Тыкнули: <span class="cnt">0</span> раз!</div><br>
+  <button class="btn" id="btt">ТЫК-ТЫК</button><br><br>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="jquery-ui.js"></script>   
+<div class="go" title="Игра на скорость и реакцию">Эвелина Нуртдинова представляет: игра "ТЫК-ТЫК"! Потренируйте свое умение быстро нажимать на мышку! В течении 5 секунд нажимайте на кнопку как можно чаще. Узнайте, на сколько быстрые у вас пальцы!</div>
+<div class="dia" title="Игра закончена!">Время закончилось! Вы нажали на кнопку <span id=summa></span> раз (-a)!</div>
+<script language=javascript>
+  	$('.go').dialog({ width: 500, buttons:{
+        "Начать!": function(){ $('.go').dialog('close'), doj();   }
+    }})
+  	$('.dia').dialog({ autoOpen: false, width: 500, buttons:{
+        "Еще раз!": function(){ $('.dia').dialog('close'), window.location.reload();   }
+    }})
+    function doj() {
+      document.querySelectorAll('section .btn')
+        .forEach(function go(el){ 
+          el.onclick = function() {
+            let cnt = this.closest('section').querySelector('.cnt');
+            cnt.innerText = parseInt(cnt.innerText, 10)+1;
+            document.getElementById('summa').innerHTML = cnt.innerText;
+          };
+        });
+      const display = document.getElementById('time');
+      const fiveminutes = 6 * 1000;
+      
+      function timer(endTime) {
+        var myTimer = setInterval(function() {
+          let now = new Date().getTime();
+          let diff = endTime - now;
+          let seconds = Math.floor(diff % (1000 * 6) / 1000);
+          seconds = seconds < 10 ? `0${seconds}` : seconds;
+          display.textContent = "00 : " + (seconds);
+          if (diff <= 0) {
+            display.textContent = "Время закончилось!!!";
+            clearInterval(myTimer);
+            $('.dia').dialog('open');
+            let btn = document.getElementById('btt');
+      btn.setAttribute('disabled', true);
+          }
+        }, 100);
+      }
+      window.onload = timer(new Date().getTime() + fiveminutes);
+    }
+       
+</script>
+					 </div>
+			</body>
+	</html> 
